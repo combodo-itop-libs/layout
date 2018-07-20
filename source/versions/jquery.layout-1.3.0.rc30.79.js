@@ -10,12 +10,12 @@
  * Dual licensed under the GPL (http://www.gnu.org/licenses/gpl.html)
  * and MIT (http://www.opensource.org/licenses/mit-license.php) licenses.
  *
- * SEE: http://layout.jquery-dev.com/LICENSE.txt
+ * SEE: http://layout.jquery-dev.net/LICENSE.txt
+ * 
+ * Changelog: http://layout.jquery-dev.net/changelog.cfm#1.3.0.rc30.79
  *
- * Changelog: http://layout.jquery-dev.com/changelog.cfm#1.3.0.rc30.79
- *
- * Docs: http://layout.jquery-dev.com/documentation.html
- * Tips: http://layout.jquery-dev.com/tips.html
+ * Docs: http://layout.jquery-dev.net/documentation.html
+ * Tips: http://layout.jquery-dev.net/tips.html
  * Help: http://groups.google.com/group/jquery-ui-layout
  */
 
@@ -365,11 +365,9 @@ $.layout = {
 		,	x	= d.css			// CSS hash
 		,	i	= { bottom: 0 }	// TEMP insets (bottom = complier hack)
 		,	N	= $.layout.cssNum
-		,	off, b, p, ei		// TEMP border, padding
+		,	off = $E.offset()
+		,	b, p, ei			// TEMP border, padding
 		;
-		if (!$E.is(":visible")) return d; // TODO: Testing?
-
-		off = $E.offset();
 		d.offsetLeft = off.left;
 		d.offsetTop  = off.top;
 
@@ -1566,7 +1564,7 @@ $.fn.layout = function (opts) {
 		if (!$N.is(":visible")) {
 			// handle Chrome bug where popup window 'has no height'
 			// if layout is BODY element, try again in 50ms
-			// SEE: http://layout.jquery-dev.com/samples/test_popup_window.html
+			// SEE: http://layout.jquery-dev.net/samples/test_popup_window.html
 			if ( !retry && browser.webkit && $N[0].tagName === "BODY" )
 				setTimeout(function(){ _initLayoutElements(true); }, 50);
 			return false;
@@ -1804,7 +1802,7 @@ $.fn.layout = function (opts) {
 		,	$parent, n
 		;
 		// sC = state.container
-		sC.selector = $N.selector.split(".slice")[0];
+		//sC.selector = $N.selector.split(".slice")[0];
 		sC.ref		= (o.name ? o.name +' layout / ' : '') + tag + (id ? "#"+id : cls ? '.['+cls+']' : ''); // used in messages
 		sC.isBody	= (tag === "BODY");
 
